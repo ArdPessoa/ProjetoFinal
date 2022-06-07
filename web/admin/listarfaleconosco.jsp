@@ -4,16 +4,17 @@
     Author     : sala305b
 --%>
 
+<%@page import="modelo.FaleConosco"%>
 <%@page import="modelo.Servico"%>
 <%@page import="java.util.List"%>
 <%@page import="modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    String idservico = String.valueOf(
+    String idsfalac = String.valueOf(
             request.getAttribute("idservico"));
 
-    List<Servico> servico = new Servico().ListarTodos();
+    List<FaleConosco> faleconosco = new FaleConosco().ListarTodos();
 
     session = request.getSession();
     Usuario user = (Usuario) session.getAttribute("user");
@@ -55,9 +56,6 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="listarservico.jsp"><h5>Listar Serviço</h5> <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="listarfaleconosco.jsp"><h5>Listar FaleConosco</h5> <span class="sr-only">(current)</span></a>
-                        </li>
 
                     </ul>
                     <div class="dropdown">
@@ -77,15 +75,18 @@
             <table class="table table-bordered">
                 <tr>
                     <td>ID</td>
-                    <td>Preço</td>
-                    <td>Modalidade</td>
+                    <td>Nome</td>
+                    <td>E-mail</td>
+                    <td>(DDD) Telefone</td>
+                    <td>UF</td>
+                    <td>Cidade</td>
                     <td>Descrição</td>
-                    <td>Vagas</td>
+                    <td>Data De Envio</td>
                     <td>Ações</td>
 
                 </tr>           
                 <%
-                    for (Servico p : servico) {
+                    for (FaleConosco p : faleconosco) {
                         out.print("<tr>");
 
                         out.print("<td>");
@@ -93,27 +94,40 @@
                         out.print("</td>");
 
                         out.print("<td>");
-                        out.print(p.getPreco());
+                        out.print(p.getNome());
                         out.print("</td>");
 
                         out.print("<td>");
-                        out.print(p.getModalidade());
+                        out.print(p.getEmail());
                         out.print("</td>");
 
+
+                        out.print("<td>");
+                        out.print(p.getDdd() + p.getTelefone());
+                        out.print("</td>");
+                        
+                        out.print("<td>");
+                        out.print(p.getUf());
+                        out.print("</td>");
+                        
+                        out.print("<td>");
+                        out.print(p.getCidade());
+                        out.print("</td>");
+                        
                         out.print("<td>");
                         out.print(p.getDescricao());
                         out.print("</td>");
-
+                        
                         out.print("<td>");
-                        out.print(p.getVagas());
+                        out.print(p.getDatacadastro());
                         out.print("</td>");
 
                         out.print("<td>");
                         out.print("<div style='display:inline-block'>");
-                        out.print("<form action='cadastroservico.jsp' method='POST'>");
-                        out.print("<input name='acao' type='hidden' value='editar' />");
-                        out.print("<input name='idservico' type='hidden' value='" + p.getId() + "' />");
-                        out.print("<button type='submit'>Editar</button>");
+                        out.print("<form action='../tela/faleconosco.jsp' method='POST'>");
+                        out.print("<input name='acao' type='hidden' value='Atualizar' />");
+                        out.print("<input name='idfalec' type='hidden' value='" + p.getId() + "' />");
+                        out.print("<button type='submit'>Vizualizar</button>");
                         out.print("</form>");
                         out.print("</div>");
 
@@ -121,9 +135,9 @@
                         out.print("&nbsp;");
 
                         out.print("<div style='display:inline-block'>");
-                        out.print("<form action='../ServicoServlet' method='POST'>");
+                        out.print("<form action='../FaleConoscoServlet' method='POST'>");
                         out.print("<input name='acao' type='hidden' value='deletar' />");
-                        out.print("<input name='idservico' type='hidden' value='" + p.getId() + "' />");
+                        out.print("<input name='idfalec' type='hidden' value='" + p.getId() + "' />");
                         out.print("<button type='submit'>Deletar</button>");
                         out.print("</form>");
                         out.print("</div>");

@@ -20,7 +20,7 @@
             boolean achou = fc.BuscarPorId(idfalec);
             if (!achou) {
                 out.print("<script>"
-                        + "window.alert('Fale Conosco n„o Encontrado');"
+                        + "window.alert('Fale Conosco n√£o Encontrado');"
                         + "</script>");
             } else {
                 acao = "Atualizar";
@@ -40,7 +40,7 @@
 
 
 %>
-        @page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -66,7 +66,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!--Aqui È o menu da parte de cima da p·gina web-->
+            <!--Aqui √© o menu da parte de cima da p√°gina web-->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -97,7 +97,7 @@
 
 
         <div class titulo>
-            <h2 class="fc"><center>Mande-nos seu recado, sugest„o, criticas, elogios</center></h2>
+            <h2 class="fc"><center>Mande-nos seu recado, sugest√£o, criticas, elogios</center></h2>
         </div>
 
         <form action="../FaleConoscoServlet" method="POST">
@@ -187,21 +187,21 @@
                                         <option <%= uf.equals("AL") ? "selected" : ""%>
                                             value="AL">Alagoas</option>
                                         <option <%= uf.equals("AP") ? "selected" : ""%>
-                                            value="AP">Amap·</option>
+                                            value="AP">Amap√°</option>
                                         <option <%= uf.equals("AM") ? "selected" : ""%>
                                             value="AM">Amazonas</option>
                                         <option <%= uf.equals("BA") ? "selected" : ""%>
                                             value="BA">Bahia</option>
                                         <option <%= uf.equals("CE") ? "selected" : ""%>
-                                            value="CE">Cear·</option>
+                                            value="CE">Cear√°</option>
                                         <option <%= uf.equals("DF") ? "selected" : ""%>
                                             value="DF">Distrito Federal</option>
                                         <option <%= uf.equals("ES") ? "selected" : ""%>
                                             value="ES">Espirito Santo</option>
                                         <option <%= uf.equals("GO") ? "selected" : ""%>
-                                            value="GO">Goi·s</option>
+                                            value="GO">Goi√°s</option>
                                         <option <%= uf.equals("MA") ? "selected" : ""%>
-                                            value="MA">Maranh„o</option>
+                                            value="MA">Maranh√£o</option>
                                         <option <%= uf.equals("MS") ? "selected" : ""%>
                                             value="MS">Mato Grosso do Sul</option>
                                         <option <%= uf.equals("MT") ? "selected" : ""%>
@@ -209,15 +209,15 @@
                                         <option <%= uf.equals("MG") ? "selected" : ""%>
                                             value="MG">Minas Gerais</option>
                                         <option <%= uf.equals("PA") ? "selected" : ""%>
-                                            value="PA">Par·</option>
+                                            value="PA">Par√°</option>
                                         <option <%= uf.equals("PB") ? "selected" : ""%>
-                                            value="PB">ParaÌba</option>
+                                            value="PB">Para√≠ba</option>
                                         <option <%= uf.equals("PR") ? "selected" : ""%>
-                                            value="PR">Paran·</option>
+                                            value="PR">Paran√°</option>
                                         <option <%= uf.equals("PE") ? "selected" : ""%>
                                             value="PE">Pernambuco</option>
                                         <option <%= uf.equals("PI") ? "selected" : ""%>
-                                            value="PI">PiauÌ</option>
+                                            value="PI">Piau√≠</option>
                                         <option <%= uf.equals("RJ") ? "selected" : ""%>
                                             value="RJ">Rio de Janeiro</option>
                                         <option <%= uf.equals("RN") ? "selected" : ""%> 
@@ -225,13 +225,13 @@
                                         <option <%= uf.equals("RS") ? "selected" : ""%> 
                                             value="RS">Rio Grande do Sul</option>
                                         <option <%= uf.equals("RO") ? "selected" : ""%> 
-                                            value="RO">RondÙnia</option>
+                                            value="RO">Rond√¥nia</option>
                                         <option <%= uf.equals("RR") ? "selected" : ""%> 
                                             value="RR">Roraima</option>
                                         <option <%= uf.equals("SC") ? "selected" : ""%> 
                                             value="SC">Santa Catarina</option>
                                         <option <%= uf.equals("SP") ? "selected" : ""%> 
-                                            value="SP">S„o Paulo</option>
+                                            value="SP">S√£o Paulo</option>
                                         <option <%= uf.equals("SE") ? "selected" : ""%>
                                             value="SE">Sergipe</option>
                                         <option <%= uf.equals("TO") ? "selected" : ""%> 
@@ -239,7 +239,7 @@
                                     </select>
                                 </div>
                                 <div class="col-6">
-                                    <input type="text"  name="cidade" class="form-control" id="inlineFormInputGroup" placeholder="Cidade">
+                                    <input type="text"     value="<%=cidade%>" name="cidade" class="form-control" id="inlineFormInputGroup" placeholder="Cidade">
                                 </div>
                             </div>
                         </div>
@@ -260,8 +260,10 @@
 
                             <div class="row ">
                                 <div style="padding-left: 0;" class="col-12">
-                                    <textarea name="descricao" class="txt form-control" rows="8" cols="130">                               
+                                    <textarea   name="descricao" class="txt form-control" rows="8" cols="130"> 
+                               <%=descricao%>
                                     </textarea>
+                                 
                                 </div>
                             </div>
                         </div>
@@ -280,7 +282,7 @@
             </div>
         </form>
 
-        <!--Aqui È o roda pÈ e as informaÁoes do roda pÈ-->
+        <!--Aqui √© o roda p√© e as informa√ßoes do roda p√©-->
         <footer class="bg-dark text-light">
             <div class="container-fluid py-3" style="margin-top: 100px;">
                 <div class="row">
@@ -300,9 +302,9 @@
                             </div>
                             <div class="col-4">
                                 <ul class="nav flex-column text-center">
-                                    <li class="nav-link"><h5>Hor·rio de Funcionamento</h5></li>
-                                    <li class="nav-link"><a href="#">Segunda · Sexta</a></li>
-                                    <li class="nav-link"><a href="#">7:00 ·s 22:00 hrs</a></li>
+                                    <li class="nav-link"><h5>Hor√°rio de Funcionamento</h5></li>
+                                    <li class="nav-link"><a href="#">Segunda √° Sexta</a></li>
+                                    <li class="nav-link"><a href="#">7:00 √°s 22:00 hrs</a></li>
 
                                 </ul>
                             </div>
@@ -326,9 +328,9 @@
                 </div>
             </div>
 
-            <!--finalizaÁ„o do roda pÈ com o ano atual -->
+            <!--finaliza√ß√£o do roda p√© com o ano atual -->
             <div class="text-center" style="background-color: #333; padding: 20px;" >
-                Copyright © 2022 © Academia & Outsourcing | Todos os direitos reservados.
+                Copyright ¬© 2022 ¬© Academia & Outsourcing | Todos os direitos reservados.
             </div>
         </footer>
 
